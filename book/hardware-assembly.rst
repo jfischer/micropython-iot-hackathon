@@ -86,15 +86,75 @@ may be found on the Adafruit website [#]_, [#]_.
 Board connections
 ------------------
 The Adafruit Feather HUZZAH and NodeMCU boards have different pinouts. Please
-follow the instructions below for your board.
+follow the instructions below for your board. Note that you should do all this
+wiring with your board unpowered (no battery and no connection to your laptop
+via USB).
+
 
 Adafruit Feather HUZZAH ESP8266
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Here are the connections to make if you have the Adafruit ESP8266 board:
 
++------------+-------------+----------------------+--------------------------+
+| Connection | Signal Name | Location of Source   | Location of Destination  |
+| Number     |             |                      |                          |
++============+=============+======================+==========================+
+|   A1       | GND         | ESP8266 board        | Bottom row of breadboard |
+|            |             | pin #4 from right    |                          |
+|	     |             | on top row           |                          |
++------------+-------------+----------------------+--------------------------+
+|   A2       | GND         | Bottom row of        | TSL2591 board            |
+|            |             | breadboard           | pin #2 from left         |
++------------+-------------+----------------------+--------------------------+
+|   A3       | 3V          | ESP8266 board        | Top row of breadboard    |
+|            |             | pin #2 from right on |                          |
+|            |             | top row              |                          |
++------------+-------------+----------------------+--------------------------+
+|   A4       | Vin         | Top row of           | TSL2591 board            |
+|            |             | breadboard           | pin #1 from left         |
++------------+-------------+----------------------+--------------------------+
+|   A5       | SDA         | ESP8266 board        | TSL2591 board            |
+|            | (GPIO #4)   | pin  #1 from left    | pin #5 from left         |
+|            |             | on bottom row        |                          |
++------------+-------------+----------------------+--------------------------+
+|   A6       | SCL         | ESP8266 board        | TSL2591 board            |
+|            | (GPIO #5)   | ping #2 from left    | pin #6 from left         |
+|            |             | on bottom row        |                          |
++------------+-------------+----------------------+--------------------------+
 
+Here is a logical wiring diagram:
+
+.. image:: _static/huzzah_wiring.png
+
+And finally, here is a photograph of the completed system using the Adafruit
+Feather Huzzah board:
+
+.. image:: _static/lighting-app-esp8266.png
+
+Now, please skip down below to the :ref:`testing-connections` section.
 
 NodeMCU
 ~~~~~~~
+
+.. _testing-connections:
+
+Testing Connections
+--------------------
+Now that the system has been wired up, we can test the connections. Take your
+multitester and set it to measure resistance. For each connection, place one
+lead on the pin of the ESP2866 board and the other on the associated pin of
+the TSL2591 board. The resistance should measure zero. You can also check for
+shorts by looking at the resistance between GND and 3V. It should be a high
+value.
+
+Now, you can use the microUSB to USB cable and connect your system to your
+laptop. You should see an LED light up (at least briefly) on the board. You
+can test the power connection by setting your multitester to voltage mode,
+placing the black lead on a GND pin, and the red lead on a 3V pin. You should
+see a voltage around 3 volts.
+
+Now, we are ready to install the firmware!
+
 
 
 .. [#] http://www.howtogeek.com/169994/how-to-protect-your-pcs-hardware-from-static-electricity-when-working-on-it/
