@@ -118,7 +118,7 @@ Here are the connections to make if you have the Adafruit ESP8266 board:
 |            |             | on bottom row        |                          |
 +------------+-------------+----------------------+--------------------------+
 |   A6       | SCL         | ESP8266 board        | TSL2591 board            |
-|            | (GPIO #5)   | ping #2 from left    | pin #6 from left         |
+|            | (GPIO #5)   | pin  #2 from left    | pin #6 from left         |
 |            |             | on bottom row        |                          |
 +------------+-------------+----------------------+--------------------------+
 
@@ -126,7 +126,7 @@ Here is a logical wiring diagram:
 
 .. image:: _static/huzzah_wiring.png
 
-And finally, here is a photograph of the completed system using the Adafruit
+And, finally, here is a photograph of the completed system using the Adafruit
 Feather Huzzah board:
 
 .. image:: _static/lighting-app-esp8266.png
@@ -135,7 +135,45 @@ Now, please skip down below to the :ref:`testing-connections` section.
 
 NodeMCU
 ~~~~~~~
+Here are the connections to make if you have the NodeMCU ESP8266 board:
 
++------------+-------------+----------------------+--------------------------+
+| Connection | Signal Name | Location of Source   | Location of Destination  |
+| Number     |             |                      |                          |
++============+=============+======================+==========================+
+|   N1       | GND         | ESP8266 board        | Bottom row of breadboard |
+|            |             | pin #7 from left     |                          |
+|	     |             | on top row           |                          |
++------------+-------------+----------------------+--------------------------+
+|   N2       | GND         | Bottom row of        | TSL2591 board            |
+|            |             | breadboard           | pin #2 from left         |
++------------+-------------+----------------------+--------------------------+
+|   N3       | 3V3         | ESP8266 board        | Top row of breadboard    |
+|            |             | pin #6 from left on  |                          |
+|            |             | top row              |                          |
++------------+-------------+----------------------+--------------------------+
+|   N4       | Vin         | Top row of           | TSL2591 board            |
+|            |             | breadboard           | pin #1 from left         |
++------------+-------------+----------------------+--------------------------+
+|   N5       | SDA         | ESP8266 board        | TSL2591 board            |
+|            | (D2)        | pin #3 from left     | pin #5 from left         |
+|            |             | on top row           |                          |
++------------+-------------+----------------------+--------------------------+
+|   N6       | SCL         | ESP8266 board        | TSL2591 board            |
+|            | (D1)        | pin #2 from left     | pin #6 from left         |
+|            |             | on top row           |                          |
++------------+-------------+----------------------+--------------------------+
+
+Here is a logical wiring diagram:
+
+.. image:: _static/nodemcu_wiring.png
+
+And, finally, here is a photograph of the completed system using the NodeMCU
+board:
+
+.. image:: _static/nodemcu_photo.png
+
+	   
 .. _testing-connections:
 
 Testing Connections
