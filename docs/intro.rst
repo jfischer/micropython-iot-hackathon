@@ -6,8 +6,8 @@ Background
 -----------
 MicroPython [#]_ is an implementation of Python 3 that can on on small devices
 without a traditional operating system. It requires just 256k of code space and
-16k of RAM. One of the microcontrollers supported is the ESP8266 [#]_, a low cost
-mirocontroller with a 32-bit CPU, a built-in WiFi radio, and a number of
+16k of RAM. One of the microcontrollers supported is the ESP8266 [#]_, a low
+cost mirocontroller with a 32-bit CPU, a built-in WiFi radio, and a number of
 input/output ports useful for interfacing with the physical world. Since the
 ESP8266 can run off a small lithium ion battery, it makes a great remote sensing
 and control platform. Complete development boards using the ESP8266 run anywhere
@@ -32,6 +32,8 @@ communication.
 
 Once the basic system is up and running, additional sensors can be added.
 
+.. image:: _static/nodemcu_photo_nolabels.jpg
+	   
 Software Overview
 -----------------
 We will first update the firmware to use the latest version of MicroPython.
