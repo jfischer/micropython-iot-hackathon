@@ -41,6 +41,20 @@ individual study.
    projects
    teachers-notes
 
+Copyright and License
+---------------------
+Copyright 2016, 2017 by Jeffrey Fischer.
+
+This document is made available under a
+`Attribution-ShareAlike 4.0 (CC BY-SA 4.0) license <https://creativecommons.org/licenses/by-sa/4.0/>`__. 
+This allows you to remix, transform, and distribute the content, provided you
+cite the original authors and provide your content under the same license as
+the orginal.
+
+Example code and any other software in the associated repository is made
+available under the MIT License. This allows you to reuse the examples, with
+very few restrictions.
+
 
 Indices and tables
 ==================

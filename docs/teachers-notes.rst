@@ -35,7 +35,7 @@ in advance.
 
 Lecture
 -------
-The website containing this documentation also contains a lecture
+The repository containing this documentation also contains a lecture
 presentation (``lecture.pptx`` and ``lecture.pdf``). We recommend walking
 through this presentation before the hands-on section. The goal is to provide
 students with some context and an overview of the project.

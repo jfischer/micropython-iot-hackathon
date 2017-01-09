@@ -34,15 +34,25 @@ Files in this Repository
 The instruction book is built using the Sphinx documentation tool [#]_.
 Here's an overview of the key files and directories:
 
-* ``book/Makefile`` - used by Spinx to build HTML and other representations
+* ``docs/Makefile`` - used by Spinx to build HTML and other representations
   of the instruction book.
-* ``book/_build`` - Sphinx creates and puts its output in this subdirectory. A
-  ``make clean`` in ``book/`` will delete this directory and its contents.
-* ``book/conf.py`` - configuration file for Sphinx
+* ``docs/_build`` - Sphinx creates and puts its output in this subdirectory. A
+  ``make clean`` in ``docs/`` will delete this directory and its contents.
+* ``docs/conf.py`` - configuration file for Sphinx
 * ``lecture.pptx`` - overview presentation to give at the start of the class.
 * ``lecture.pdf`` - pdf version of the overview presentation
 
 
-Copyright
-=========
-Copyright 2016 by Jeffrey Fischer. All rights reserved.
+Copyright and License
+=====================
+Copyright 2016, 2017 by Jeffrey Fischer.
+
+The documentation and text in this repository is made available under a
+`Attribution-ShareAlike 4.0 (CC BY-SA 4.0) license <https://creativecommons.org/licenses/by-sa/4.0/>`__. 
+This allows you to remix, transform, and distribute the content, provided you
+cite the original authors and provide your content under the same license as
+the orginal. See the file LICENSE-DOCS.txt for details.
+
+Example code and any other software in this repository is made available under
+the MIT License. This allows you to reuse the examples, with very few
+restrictions. See the file LICENSE-CODE.txt for details.
