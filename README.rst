@@ -58,3 +58,5 @@ the orginal. See the file LICENSE-DOCS.txt for details.
 Example code and any other software in this repository is made available under
 the MIT License. This allows you to reuse the examples, with very few
 restrictions. See the file LICENSE-CODE.txt for details.
+
+.. [#] http://www.sphinx-doc.org/en/1.5.1/
