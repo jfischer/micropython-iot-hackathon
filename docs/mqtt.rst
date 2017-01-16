@@ -49,28 +49,71 @@ and implementing handshake protocols. However, this has a cost in terms of
 resources and system complexity. MQTT gives you flexibility by specifying a
 *Quality of Service* (QoS) with each message.
 
-``QoS`` is a parameter available on each publish call. It is one of three
+``qos`` is a parameter available on each publish call. It is one of three
 levels:
 
-* `0` -- at most once. This means that the system will make a best effort to
+* ``0`` -- at most once. This means that the system will make a best effort to
   deliver the message, but will not store it and will drop the message in the
   event of an error. This is typically the behavior you would use in a sensor
   application: if a message is lost, the next sensor sample will be coming
   soon, anyway.
-* `1` -- at least once. This means that the system will use storage and
+* ``1`` -- at least once. This means that the system will use storage and
   handshaking to ensure that the message is delivered. However, in doing so
   it may send the same message multiple times, resulting in duplicates.
-* `2` -- exactly one. This means that each message will be delivered, and
+* ``2`` -- exactly one. This means that each message will be delivered, and
   the handshaking protocol will ensure that duplicates are not passed to
   clients. This is the behaviour you want if you are implementing a banking
   system (but not so much in the IoT world).
 
-For our application, we will use QoS level `0`.
+For our application, we will use QoS level ``0``.
+
+Security
+~~~~~~~~
+MQTT provides security, but it is not enabled by default. For our experiments,
+we will rely on the encrypted WiFi connection to provide a basic level of
+security. MQTT has the option for Transport Layer Security (TLS) encryption,
+just as used with HTTPS. We recommend using that for any system you put into
+production.
+
+MQTT also provides username/password authentication. Note that the password
+is transmitted in clear text. Thus, be sure to use TLS encryption if you
+are using authentication.
 
 
 Host-side Setup
 ---------------
-Now, let us install an MQTT broker on our host system.
+Now, let us install an MQTT broker on our host system. We will use Mosquitto, an
+open source broker from the Eclipse Foundation. It is implemented in C, and can
+run well on fairly constrained systems (e.g. a Raspberry Pi). The documentation
+and other other resources may be found at http://mosquitto.org. The downloads
+are hosted at the main Eclipse Foundation Website, and may be found at
+https://www.eclipse.org/mosquitto/download/. That page has instructions for
+installing on most platforms.
+
+You will want to install both the broker and the client utilies (in particular,
+``mosquitto_sub``). On Debian-based Linux distributions (Debian, Ubuntu,
+Raspbian, etc.) these are in two packages, so you will install them as follows::
+
+  sudo apt-get install mosquitto mosquitto-clients
+
+Once installed, make sure that your Mosquitto broker is running and listening
+to port 1883 (the default). A simple test can be done with the ``mosquitto_pub``
+and ``mosquitto_sub`` clients. Open two terminal windows. In one, type::
+
+  mosquitto_sub -t test-topic
+
+It should hang and not print anything immediately. The process is subscribing to
+the topic ``test-topic`` and will print to standard output any messages that it
+receives. In the second window, run the following::
+
+  mosquitto_pub -t test-topic -m "hi, there"
+
+You should now see the message printed in the first (subscriber) window. This
+means that the broker is working. You can now kill the subscriber with a
+Control-C.
+
+Finally, if your system has a firewall, make sure that port 1883 is open.
+Otherwise, connections from the ESP8266 system will be blocked.
 
 
 ESP8266 Setup
@@ -160,6 +203,127 @@ Great, now you have gotten live sensor data off your ESP8266 board!
 
 Putting it all Together
 -----------------------
+Now, we will set up the ESP8266 to run our sample/send loop upon startup.
+We will also run a script on the host to subscribe to our topic and write
+the events to a CSV (spreadsheet) file. The source code for this section
+may be found on Github in the repository for this tutorial. Specifically,
+look in the ``example_code`` folder
+(https://github.com/jfischer/micropython-iot-hackathon/tree/master/example_code). The program ``client.py`` will run on the ESP8266 and the program
+``server.py`` will run on our host.
+
+client.py
+~~~~~~~~~
+First, open an editor and create a file ``config.py`` that contains
+configuration variables needed for your network and system. It should
+look something like this:
+
+.. code-block:: python
+
+   SENSOR_ID='lux-1'
+   WIFI_ESSID='my_wifi_sid'
+   WIFI_PASSWORD='my_wifi_password'
+   MQTT_HOST='mqtt_broker_ip'
+   MQTT_TOPIC='sensor-data'
+   SLEEP_TIME=5.0
+
+You will definitely need to change the values for ``WIFI_ESSID``,
+``WIFI_PASSWORD``, and ``MQTT_HOST`. The other can be left as-is.
+
+Now, use ``mpfshell`` to copy ``config.py`` and ``client.py`` to your
+ESP8266 (substituting for TTYDEVICE)::
+
+  open TTYDEVICE
+  put config.py
+  put client.py
+
+Next, open a MicroPython REPL session. To start our main loop,
+we just need to import the ``client`` module. Here is what the
+REPL session looks like:
+
+.. code-block:: python
+
+    >>> import client
+    Disabled access point, network status is -1
+    network config: (...)
+    Connecting to xxx.xxx.xxx.xxx:1883
+    Connection successful
+    Running main loop with sample every 5.0 seconds...
+
+The REPL should hang at this point because the ESP8266 is in its main
+loop. Messages should be sent to the MQTT broker once every 5 seconds.
+
+Now that we have verified the ``client.py`` script, we will configure
+it to start upon boot. While still in your REPL session, enter
+Control-C to break out of the loop. You should see a ``KeyboardInterrupt``
+exception. We will now rename ``client.py`` to ``main.py`` using
+``os.rename()``. Upon completion of its boot procedure,  MicroPython will
+always run the script ``main.py`` if it is present. Here is the
+REPL:
+
+.. code-block:: python
+
+>>> import os
+>>> os.rename('client.py', 'main.py')
+>>> os.listdir()
+['boot.py', 'tsl2591.py', 'antevents.py', 'wifi.py', 'mqtt_writer2.py', 'mqtt_writer.py', 'config.py', 'main.py']
+>>>
+
+Finally, press the reset button of your ESP8266 board. It will reboot.
+You should see some garbage data followed by the same sequence of messages
+that you saw when you imported ``client`` from the REPL.
+
+Now, let us turn our attention to the host side of things.
+
+server.py
+~~~~~~~~~
+First, we will verify that we are getting the messages on the host.
+From your command line run::
+
+  mosquitto_sub -t sensor-data
+
+You should see the sensor events printed once every five seconds. We will
+next use the ``server.py`` script to read these events and write to a CSV
+file. Since it is running on a PC or server, this script uses the full
+CPython version of AntEvents. You will need to have the ``antevents``
+package in your Python environment. This can be done in one of three
+ways:
+
+1. Install AntEvents via pip: ``pip install antevents-python``
+2. Install from your local repository by going to the ``antevents-python``
+   directory and running ``python setup.py install``.
+3. Just set your PYTHONPATH environment variable to the full absolute path
+   of the repository directory ``antevents-python``.
+
+Once this is done, you should be able to run the following::
+
+  $ python
+  >> import antevents.base
+
+If this succeeds, you have AntEvents properly set up. We are
+now ready to run the ``server.py`` script. It takes two command
+line arguments: the topic to which it will subscribe and the name
+of the out CSV file. We'll run it as follows::
+
+  python server.py sensor-data test.csv
+
+It should print a message about connecting successfully and then,
+once every five seconds, print the latest sensor event like this::
+
+  SensorEvent(sensor_id='lux-1', ts=1484535480.613611, val=371.6063)
+  SensorEvent(sensor_id='lux-1', ts=1484535485.6078472, val=371.6063)
+  SensorEvent(sensor_id='lux-1', ts=1484535490.4335377, val=371.6063)
+  SensorEvent(sensor_id='lux-1', ts=1484535495.4575906, val=371.6063)
+  ...
+
+If you look at the file test.csv, you should see four data values for
+each row:
+
+1. The timestamp in Unix format (seconds since 1970)
+2. The timestamp in human readable format
+3. The sensor id.
+4. The sensor value.
+
+Congratulations! You have gotten the entire system working!
 
 
 .. [#] http://docs.oasis-open.org/mqtt/mqtt/v3.1.1/mqtt-v3.1.1.html
