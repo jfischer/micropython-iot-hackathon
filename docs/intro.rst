@@ -48,6 +48,10 @@ the MQTT protocol (MicroPython provides a library for this). We can set
 up an MQTT *broker* on the laptop/PC to receive these messages.
 
 Finally, we will configure the ESP8266 to start our software upon reboot.
+Here is a block diagram of the completed system:
+
+.. image:: _static/system-overview.png
+	   
 
 Outline of this Document
 ------------------------

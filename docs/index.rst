@@ -45,7 +45,7 @@ Copyright and License
 ---------------------
 Copyright 2016, 2017 by Jeffrey Fischer.
 
-This document is made available under a
+This document is made available under a Creative Commons
 `Attribution-ShareAlike 4.0 (CC BY-SA 4.0) license <https://creativecommons.org/licenses/by-sa/4.0/>`__. 
 This allows you to remix, transform, and distribute the content, provided you
 cite the original authors and provide your content under the same license as
