@@ -42,7 +42,7 @@ MicroPython Firmware
 You can download the latest version of the MicroPython firmware for ESP8266 from
 here: http://micropython.org/download#esp8266. You will want the latest stable
 firmware version [#]_. Since the name of the firmware file will change over time,
-we will refer to it as ``esp8266-YYYYMMDD-vX.Y.Z.bin`` in any commands. Just substitue
+we will refer to it as ``esp8266-YYYYMMDD-vX.Y.Z.bin`` in any commands. Just substitute
 with name of your image file.
 
 Mac-specific
@@ -72,7 +72,7 @@ you can install it via::
 
 Windows-specific
 ~~~~~~~~~~~~~~~~
-You will neeed the ``PuTTY`` program to interact with the Python REPL running
+You will need the ``PuTTY`` program to interact with the Python REPL running
 on the ESP8266. It is free and available at http://www.putty.org.
 
 As stated above, we have not attempted this process with a Windows host. We
@@ -125,7 +125,7 @@ Next, we will use ``screen`` to connect to our board. From the command line::
   screen /dev/TTYDEVICE 115200
 
 Now, press the reset button on your ESP8266 board. In your ``screen`` session,
-you should see some garbarge characters followed by a version string and a
+you should see some garbage characters followed by a version string and a
 prompt. For example:
 
   .. image:: _static/micropython_version_prompt.png
