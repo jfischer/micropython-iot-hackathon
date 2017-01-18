@@ -7,7 +7,7 @@ Background
 MicroPython [#]_ is an implementation of Python 3 that can on on small devices
 without a traditional operating system. It requires just 256k of code space and
 16k of RAM. One of the microcontrollers supported is the ESP8266 [#]_, a low
-cost mirocontroller with a 32-bit CPU, a built-in WiFi radio, and a number of
+cost microcontroller with a 32-bit CPU, a built-in WiFi radio, and a number of
 input/output ports useful for interfacing with the physical world. Since the
 ESP8266 can run off a small lithium ion battery, it makes a great remote sensing
 and control platform. Complete development boards using the ESP8266 run anywhere
@@ -52,10 +52,10 @@ Here is a block diagram of the completed system:
 
 .. image:: _static/system-overview.png
 
-Github Repository
+GitHub Repository
 -----------------
 Example code and the source for this documentation are available
-in a Github repository at: https://github.com/jfischer/micropython-iot-hackathon.
+in a GitHub repository at: https://github.com/jfischer/micropython-iot-hackathon.
 
 Outline of this Document
 ------------------------
