@@ -227,7 +227,7 @@ look something like this:
    SLEEP_TIME=5.0
 
 You will definitely need to change the values for ``WIFI_ESSID``,
-``WIFI_PASSWORD``, and ``MQTT_HOST`. The other can be left as-is.
+``WIFI_PASSWORD``, and ``MQTT_HOST``. The other can be left as-is.
 
 Now, use ``mpfshell`` to copy ``config.py`` and ``client.py`` to your
 ESP8266 (substituting for TTYDEVICE)::

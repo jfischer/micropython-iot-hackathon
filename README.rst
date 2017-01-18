@@ -1,7 +1,7 @@
 ==================================================
-Micropython IoT Hackathon (featuring the ESP8266)
+MicroPython IoT Hackathon (featuring the ESP8266)
 ==================================================
-This repository contains the content needed to run a Micropython-based IoT
+This repository contains the content needed to run a MicroPython-based IoT
 Hackathon using ESP8266 development boards. Atendees will work through a
 pre-defined project involving a light sensor and then explore more complex
 applications. Both hardware and software will be covered.
@@ -14,14 +14,14 @@ Abstract
 ========
 Due in large part to the availability of cheap, low-power, internet-connected
 microcontrollers, the Internet of Things is taking off. Python developers can
-get in on the excitement with Micropython, an implementation of Python 3 that
-runs on very small devices with no operating system. Micropython provides
+get in on the excitement with MicroPython, an implementation of Python 3 that
+runs on very small devices with no operating system. MicroPython provides
 the standard Python REPL (read-eval-print-loop) interface, so you can
 interactively develop and debug applications on these small devices.
 
 In this session, you will learn some basic electronics, wire up some sensors to
 a low-power wireless controller board (based on the ESP8266 microcontroller),
-load the Micropython firmware, and interactively write simple applications to
+load the MicroPython firmware, and interactively write simple applications to
 read from the sensors. We will also discuss how to connect to other systems via
 the MQTT messaging protocol and exchange ideas on larger projects that can be
 built at home for low cost with beginner-level knowledge.
@@ -30,6 +30,11 @@ The only prerequisite is to bring a laptop with a USB port. Here is a picture
 of the completed project:
 
 .. image:: docs/_static/lighting-app-esp8266.png
+
+Docs
+====
+The rendered HTML documentation is now available on readthedocs.org:
+http://micropython-iot-hackathon.readthedocs.io/en/latest/
 
 Files in this Repository
 ========================
@@ -67,6 +72,8 @@ Release History
 +------------+---------+--------------------------------------------------+
 | Date       | Version | Description                                      |
 +============+=========+==================================================+
+| 2017-01-16 |  1.0.0  | Complete version, including MQTT.                |
++------------+---------+--------------------------------------------------+
 | 2017-01-08 |  0.9.0  | Initial public version. Still need to write MQTT |
 |            |         | section.                                         |
 +------------+---------+--------------------------------------------------+

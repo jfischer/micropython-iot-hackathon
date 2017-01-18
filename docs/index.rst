@@ -51,9 +51,10 @@ This allows you to remix, transform, and distribute the content, provided you
 cite the original authors and provide your content under the same license as
 the orginal.
 
-Example code and any other software in the associated repository is made
-available under the MIT License. This allows you to reuse the examples, with
-very few restrictions.
+Example code and any other software in the
+`associated repository <https://github.com/jfischer/micropython-iot-hackathon>`__
+is made available under the MIT License. This allows you to reuse the examples,
+with very few restrictions.
 
 
 Indices and tables

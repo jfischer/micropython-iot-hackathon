@@ -22,8 +22,9 @@ Here is a sample announcement that can be used for the Hackathon:
     the MQTT messaging protocol and exchange ideas on larger projects that can be
     built at home for low cost with beginner-level knowledge.
 
-    The only prerequisite is to bring a laptop with a USB port. Here is a picture
-    of the completed project: https://data-ken.org/images/lighting-app-esp8266.png
+    Hardware is provided, the only prerequisite is to bring a laptop with a USB
+    port. Here is a picture of the completed project:
+    https://data-ken.org/images/lighting-app-esp8266.png
 
 Soldering
 ---------

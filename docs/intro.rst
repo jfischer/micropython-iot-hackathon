@@ -51,7 +51,11 @@ Finally, we will configure the ESP8266 to start our software upon reboot.
 Here is a block diagram of the completed system:
 
 .. image:: _static/system-overview.png
-	   
+
+Github Repository
+-----------------
+Example code and the source for this documentation are available
+in a Github repository at: https://github.com/jfischer/micropython-iot-hackathon.
 
 Outline of this Document
 ------------------------
@@ -73,6 +77,8 @@ topics are covered:
   creative and try out your own ideas.
 * :ref:`teachers-notes` - some notes for instructors who are using the material
   as a template for a class.
+
+OK, now let's get started with the :ref:`parts-and-tools` that you need.
 
 .. [#] http://www.micropython.org
 
