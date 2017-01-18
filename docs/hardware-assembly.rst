@@ -14,7 +14,7 @@ hardware.
 
 Avoid Static Electricity
 ~~~~~~~~~~~~~~~~~~~~~~~~
-Static electricity (e.g. that shock you sometimes get when touching a doornob)
+Static electricity (e.g. that shock you sometimes get when touching a doorknob)
 can damage electronic components. When working with the breakout boards, you
 should take precautions to avoid static electricity. Some simple precautions:
 
@@ -22,7 +22,7 @@ should take precautions to avoid static electricity. Some simple precautions:
 * Most computer boards and chips come in anti-static packages. Keep them in the
   packaging until you need them.
 * Touch some grounded metal (e.g. your computer's chassis, if it is metal)
-  before touching any electonic components.
+  before touching any electronic components.
 * Ideally, use a grounded anti-static wrist strap and mat when working with
   your components.
 
@@ -35,14 +35,14 @@ In digital electronics, electrical current flows from a positive voltage
 supply (usually indicated by a red terminal), through circuitry, and to the
 electrical ground (usually indicated by a black terminal). The positive power
 voltage is typically 5 volts or 3.3 volts. You should **never** allow the power
-lines to be connected to the ground line, without the proper electical
+lines to be connected to the ground line, without the proper electrical
 components in between. Ohm's law [#]_ states that current flowing is equal to the
-voltage divided by the electical resistance. If this resistance is zero (e.g. a
+voltage divided by the electrical resistance. If this resistance is zero (e.g. a
 direct connection), then an infinite current can flow. This is known as a
-*short circuit*. Causing one will not only destroy your electical components,
+*short circuit*. Causing one will not only destroy your electrical components,
 but may also damage the USB port on your computer.
 
-Ok, with that we are ready to start hooking up the hardware.
+OK, with that we are ready to start hooking up the hardware.
 
 Breadboards
 -----------
