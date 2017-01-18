@@ -1,7 +1,7 @@
 .. _firmware-and-testing:
 
-Software and Firmware Install
-=============================
+4. Software and Firmware Install
+================================
 We are now ready to start installing software on our board, over the USB
 connection. For this, you will need a Mac, Linux PC, or Windows PC.
 We have only tested the firmware procedure on Mac and Linux, so those
@@ -140,6 +140,8 @@ You should now be able to type Python code in at the prompt::
 Congratulations, you have MicroPython running on your ESP8266! If you had
 problems, you might try looking at the troubleshooting hints provided in
 the MicroPython documentation [#]_.
+
+Next, let's write an :ref:`application <antevents-application>` for our board.
   
 .. [#] https://pypi.python.org/pypi/esptool/1.2.1
 

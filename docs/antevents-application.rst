@@ -1,7 +1,7 @@
 .. _antevents-application:
 
-AntEvents Application
-=====================
+5. AntEvents Application
+========================
 Now that our board is up and running, we can use AntEvents to build a simple
 application.
 
@@ -153,5 +153,6 @@ print the messages.
 The tuples being printed have three elements: the sensor id, a timestamp,
 and the sensor reading.
 
-In the next section, we'll see how we can get these samples off the ESP2866
+In the :ref:`next section <mqtt>`,
+we'll see how we can get these samples off the ESP2866
 using its WiFi radio and the MQTT protocol.

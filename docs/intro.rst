@@ -1,7 +1,7 @@
 .. _intro:
 
-Introduction
-=============
+1. Introduction
+===============
 Background
 -----------
 MicroPython [#]_ is an implementation of Python 3 that can on on small devices
@@ -78,7 +78,7 @@ topics are covered:
 * :ref:`teachers-notes` - some notes for instructors who are using the material
   as a template for a class.
 
-OK, now let's get started with the :ref:`parts-and-tools` that you need.
+OK, now let's get started with the :ref:`parts and tools <parts-and-tools>` that you need.
 
 .. [#] http://www.micropython.org
 

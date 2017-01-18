@@ -1,7 +1,7 @@
 .. _projects:
 
-Projects
-========
+7. Projects
+===========
 We now sketch out several projects you can build starting with your system.
 These include interfacing additional sensors, software projects,
 as well as incorporating the system in a larger application. Currently, this
@@ -24,6 +24,19 @@ This is an application which uses captured light sensor data to train a
 Hidden Markov Model. This model then is replayed when you are not home, to turn
 lights on and off in a realistic manner.
 
+Turning on an LED
+-----------------
+Perhaps the simplest hardware interfacing is to an LED. There are many tutorials
+online about how to do this. You will need three connections: from a GPIO pin
+to the LED, from the LED to a resistor, and from the resistor to GND.
+
+Temperature Sensor
+------------------
+There are many temperature sensors on the market. One well documented sensor
+is the `MCP9808 breakout board <https://www.adafruit.com/products/1782>`__ from
+Adafruit. Like our light sensor, it uses the IC2 bus for communication. Adafruit
+even has a tutorial about using this sensor with MicroPython
+`here <https://learn.adafruit.com/micropython-hardware-i2c-devices>`__.
 
 Door Open/Close Detector
 ------------------------
@@ -38,4 +51,6 @@ It is more focused on lower level sensors and has some interesting
 hardware projects. It is called "MicroPython on ESP8266 Workshop" and
 is available here: http://micropython-on-esp8266-workshop.readthedocs.io/en/latest/index.html.
 
+Finally, we conclude with some :ref:`advice <teachers-notes>` for hosting a
+hackathon.
 

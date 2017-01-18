@@ -1,7 +1,7 @@
 .. _hardware-assembly:
 
-Hardware Assembly
-=================
+3. Hardware Assembly
+====================
 To assemble our system, we will connect our light sensor to the ESP8266 board.
 This involves connecting ground and power, and then the two signals needed for
 the I2C bus. The exact details depend on which ESP8266 board you are using
@@ -191,7 +191,7 @@ can test the power connection by setting your multitester to voltage mode,
 placing the black lead on a GND pin, and the red lead on a 3V pin. You should
 see a voltage around 3 volts.
 
-Now, we are ready to install the firmware!
+Now, we are ready to install the :ref:`firmware and software <firmware-and-testing>`!
 
 
 

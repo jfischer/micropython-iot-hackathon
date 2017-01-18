@@ -1,7 +1,7 @@
 .. _mqtt:
 
-Messaging with MQTT
-===================
+6. Messaging with MQTT
+======================
 MQTT (MQ Telemetry Transport) is a lightweight publish/subscribe messaging
 protocol frequently used in IoT applications. It is a very thin layer over
 TCP/IP, and has many implementations. MQTT is even an OASIS
@@ -274,19 +274,42 @@ that you saw when you imported ``client`` from the REPL.
 
 Now, let us turn our attention to the host side of things.
 
-server.py
-~~~~~~~~~
+Verifying messages at the server
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 First, we will verify that we are getting the messages on the host.
 From your command line run::
 
   mosquitto_sub -t sensor-data
 
-You should see the sensor events printed once every five seconds. We will
-next use the ``server.py`` script to read these events and write to a CSV
-file. Since it is running on a PC or server, this script uses the full
-CPython version of AntEvents. You will need to have the ``antevents``
-package in your Python environment. This can be done in one of three
-ways:
+You should see the sensor events printed once every five seconds.
+
+server.py
+~~~~~~~~~
+We will next use the ``server.py`` script to read these events and write to a CSV
+file. It is an AntEvents script that subscribes to messages on a specified
+topic, parses the messages, overwrites the timestamps with the server timestamp [#]_,
+and writes the events to a CSV file. Here is a graphical view of the dataflow:
+
+.. image:: _static/server-py-flow.png
+
+Here is what the core part of the script looks like:
+
+.. code-block:: python
+
+  mqtt.select(lambda m:(m.payload).decode('utf-8'))\
+      .from_json(constructor=SensorEvent)\
+      .select(lambda evt: SensorEvent(sensor_id=evt.sensor_id,
+                                      ts=time.time(),
+                                      val=evt.val))\
+      .csv_writer(filename)
+		
+
+Since it is running on a PC or server, this script uses the full
+CPython version of AntEvents. You will need to have an installation of
+Python 3. You will also need the ``paho-mqtt`` package (installable via pip)
+and the ``antevents-python``
+package in your Python environment. Installing AntEvents can be done in one of
+three ways:
 
 1. Install AntEvents via pip: ``pip install antevents-python``
 2. Install from your local repository by going to the ``antevents-python``
@@ -296,7 +319,7 @@ ways:
 
 Once this is done, you should be able to run the following::
 
-  $ python
+  $ python3
   >> import antevents.base
 
 If this succeeds, you have AntEvents properly set up. We are
@@ -304,7 +327,7 @@ now ready to run the ``server.py`` script. It takes two command
 line arguments: the topic to which it will subscribe and the name
 of the out CSV file. We'll run it as follows::
 
-  python server.py sensor-data test.csv
+  python3 server.py sensor-data test.csv
 
 It should print a message about connecting successfully and then,
 once every five seconds, print the latest sensor event like this::
@@ -325,6 +348,8 @@ each row:
 
 Congratulations! You have gotten the entire system working!
 
+If you are interested, you can look at some more :ref:`projects <projects>` to
+do with your board.
 
 .. [#] http://docs.oasis-open.org/mqtt/mqtt/v3.1.1/mqtt-v3.1.1.html
 
@@ -333,3 +358,8 @@ Congratulations! You have gotten the entire system working!
        enough that you can understand it by a quick read of the source code:
        https://github.com/micropython/micropython-lib/tree/master/umqtt.simple and
        https://github.com/micropython/micropython-lib/tree/master/umqtt.robust.
+
+.. [#] The ESP8266 does not have a realtime clock and the timestamps we get
+       from it are only seconds since startup time. To work around this, we
+       overwrite the timestamps on the server. This introduces some inaccuracy,
+       but it should not be significant at our sample rates.

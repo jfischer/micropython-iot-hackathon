@@ -1,7 +1,7 @@
 .. _parts-and-tools:
 
-Required (and Recommended) Parts and Tools
-==========================================
+2. Required (and Recommended) Parts and Tools
+=============================================
 Parts
 -----
 The table below lists the parts required for assembling our system:
@@ -106,6 +106,7 @@ Needle-nose pliers
     Although not strictly necessary, these can be helpful.
 
 
+Now, we are ready to begin the :ref:`hardware assembly <hardware-assembly>`.
 
 
 
