@@ -42,7 +42,7 @@ Door Open/Close Detector
 ------------------------
 Adafruit describes a project to interface the ESP8266 to a door open/closed
 switch here: https://learn.adafruit.com/using-ifttt-with-adafruit-io/overview.
-It is Arduino based, but should be easily adaptible to MicroPython.
+It is Arduino based, but should be easily adaptable to MicroPython.
 
 Another Micropython/ESP8266 Tutorial
 ------------------------------------
