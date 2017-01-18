@@ -31,7 +31,7 @@ Soldering and Hardware Preparation
 The breakout boards from Adafruit (e.g the Feather HUZZAH with
 ESP8266 or the TSL2591 light sensor) need to have their headers
 soldered to the boards. Unless your facility is a hardware lab
-set up for this kind of thing, we recommand doing the soldering
+set up for this kind of thing, we recommend doing the soldering
 in advance. For the first running of the hackathon, we soldered
 the boards and seated them on the breadboard. Here's what the
 set of boards looked like (10 student boards, 1 demo board, 1 spare):
