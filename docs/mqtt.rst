@@ -22,7 +22,7 @@ different interaction patterns. The picture below shows an example:
 
 Here, we see a broker with three topics: *topic1*, *topic2*, and *topic3*,
 which interact with clients using two different interaction patterns.
-*Client-A* and *Client-B* are pubishing their messages to *topic1*. When a
+*Client-A* and *Client-B* are publishing their messages to *topic1*. When a
 message is received at the broker, it is passed on to any current subscribers
 to the topic. In this case, both *Client-D* and *Client-E* will receive each
 message. We will call this a *push* pattern, as it is one directional, and the
@@ -42,7 +42,7 @@ In our application, we will be using the simpler push pattern.
 Quality of Service
 ~~~~~~~~~~~~~~~~~~
 Networked systems are never 100% reliable -- systems may crash, connections
-can be lost, or parts of an appliciation taken down for maintenance. This is
+can be lost, or parts of an application taken down for maintenance. This is
 even more true for IoT systems, where sensors may be in harsh physical
 environments. Middleware like MQTT can improve reliability by storing messages
 and implementing handshake protocols. However, this has a cost in terms of
@@ -62,7 +62,7 @@ levels:
   it may send the same message multiple times, resulting in duplicates.
 * ``2`` -- exactly one. This means that each message will be delivered, and
   the handshaking protocol will ensure that duplicates are not passed to
-  clients. This is the behaviour you want if you are implementing a banking
+  clients. This is the behavior you want if you are implementing a banking
   system (but not so much in the IoT world).
 
 For our application, we will use QoS level ``0``.
@@ -90,7 +90,7 @@ are hosted at the main Eclipse Foundation Website, and may be found at
 https://www.eclipse.org/mosquitto/download/. That page has instructions for
 installing on most platforms.
 
-You will want to install both the broker and the client utilies (in particular,
+You will want to install both the broker and the client utilities (in particular,
 ``mosquitto_sub``). On Debian-based Linux distributions (Debian, Ubuntu,
 Raspbian, etc.) these are in two packages, so you will install them as follows::
 
@@ -206,7 +206,7 @@ Putting it all Together
 Now, we will set up the ESP8266 to run our sample/send loop upon startup.
 We will also run a script on the host to subscribe to our topic and write
 the events to a CSV (spreadsheet) file. The source code for this section
-may be found on Github in the repository for this tutorial. Specifically,
+may be found on GitHub in the repository for this tutorial. Specifically,
 look in the ``example_code`` folder
 (https://github.com/jfischer/micropython-iot-hackathon/tree/master/example_code). The program ``client.py`` will run on the ESP8266 and the program
 ``server.py`` will run on our host.

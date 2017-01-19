@@ -30,7 +30,7 @@ system for processing and / or storage.
 
 Reading the Light Sensor
 ------------------------
-A *sensor* in AntEvents is a Python object which satisifes two
+A *sensor* in AntEvents is a Python object which satisfies two
 criteria:
 
 1. It provides a ``sensor_id`` property which can be used in event
@@ -57,7 +57,7 @@ or ``ttyUSB0`` for TTYDEVICE)::
 
 The ``open`` command establishes a connection to your ESP8266. The ``ls`` will
 list the files on that system (MicroPython includes a very simple filesystem
-implementation). Initally, you should only see the file ``boot.py``, which is
+implementation). Initially, you should only see the file ``boot.py``, which is
 installed as a part of the firmware flash.
 
 Now, run the command ``lls``. This lists the files on your host system, in the
@@ -94,7 +94,7 @@ Either way, once we are in the REPL, we want to import the Tsl2591 class from
 Here is an example session:
 
 .. code-block:: python
-  
+
   >> from tsl2591 import Tsl2591
   >>> tsl = Tsl2591('lux-1')
   >>> tsl.sample()
@@ -111,7 +111,7 @@ sensor is working for us!
 A Light Sampling Application
 ----------------------------
 Now, we will copy over the main module of AntEvents and use the scheduler
-to peridically call our sample method and print the result. First, start
+to periodically call our sample method and print the result. First, start
 ``mpfshell`` in the ``micropython`` directory. Copy ``antevents.py`` over
 to the ESP8266 as follows::
 
@@ -127,7 +127,7 @@ we will call the scheduler with the sensor, asking it to sample the sensor
 once every two seconds and print the resulting event. Here is the REPL session:
 
 .. code-block:: python
-		
+
     >>> from antevents import *
     >>> from tsl2591 import Tsl2591
     >>> tsl = Tsl2591('lux-1')
@@ -143,7 +143,7 @@ once every two seconds and print the resulting event. Here is the REPL session:
     ('lux-1', 352, 214.1184)
     ('lux-1', 354, 48.14401)
     ('lux-1', 356, 50.75521)
-    ('lux-1', 358, 294.9023)  
+    ('lux-1', 358, 294.9023)
 
 The ``schedule_sensor()`` call takes three parameters: the sensor
 object to be schedule, the sample interval in seconds, and the downstream

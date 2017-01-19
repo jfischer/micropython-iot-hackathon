@@ -49,7 +49,7 @@ This document is made available under a Creative Commons
 `Attribution-ShareAlike 4.0 (CC BY-SA 4.0) license <https://creativecommons.org/licenses/by-sa/4.0/>`__. 
 This allows you to remix, transform, and distribute the content, provided you
 cite the original authors and provide your content under the same license as
-the orginal.
+the original.
 
 Example code and any other software in the
 `associated repository <https://github.com/jfischer/micropython-iot-hackathon>`__

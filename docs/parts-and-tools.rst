@@ -69,7 +69,7 @@ Micro-USB to USB cable
 Breadboarding wires
     These are pre-cut male jumper wires that we will use to make the connections
     on the breadboard. You can also just get a spool of insulated solid wire
-    from 22 to 26 guage and use a wire stripper and cutters to get wires of the
+    from 22 to 26 gauge and use a wire stripper and cutters to get wires of the
     right size.
 
 Recommended Tools
