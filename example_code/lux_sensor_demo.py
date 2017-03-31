@@ -3,7 +3,7 @@
 # This just samples the sensor in a loop and prints the
 # events.
 
-from antevents import *
+from thingflow import *
 from tsl2591 import Tsl2591
 tsl = Tsl2591('lux-1')
 sched = Scheduler()

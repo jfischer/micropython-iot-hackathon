@@ -1,15 +1,15 @@
 # Main program to run on host that is running the MQTT broker
-# It reads from the specified topic and writes to a CSV file.
+# It reads from the specified port and writes to a CSV file.
 import argparse
 import asyncio
 import time
 import sys
 
-from antevents.base import Scheduler, SensorEvent
-from antevents.adapters.mqtt import MQTTReader
-import antevents.adapters.csv # adds csv_writer() method
-import antevents.linq.select # adds select() method
-import antevents.linq.json # adds json() method
+from thingflow.base import Scheduler, SensorEvent
+from thingflow.adapters.mqtt import MQTTReader
+import thingflow.adapters.csv # adds csv_writer() method
+import thingflow.filters.select # adds select() method
+import thingflow.filters.json # adds json() method
 
 def setup_flow(topic, filename):
     mqtt = MQTTReader('localhost', topics=[(topic, 0),])
@@ -23,7 +23,7 @@ def setup_flow(topic, filename):
     return mqtt
 
 def main():
-    parser = argparse.ArgumentParser(description="Subscribe to the specified topic and write the resulting messages")
+    parser = argparse.ArgumentParser(description="Subscribe to the specified port and write the resulting messages")
     parser.add_argument('topic_name', metavar='TOPIC_NAME', type=str,
                         help="Topic for subscription")
     parser.add_argument('csv_filename', metavar="CSV_FILENAME", type=str,

@@ -7,7 +7,7 @@ from config import SENSOR_ID, WIFI_ESSID, WIFI_PASSWORD, MQTT_HOST,\
                    MQTT_TOPIC, SLEEP_TIME
 
 from wifi import wifi_connect, disable_wifi_ap
-from antevents import *
+from thingflow import *
 from tsl2591 import Tsl2591
 from mqtt_writer import MQTTWriter
 
