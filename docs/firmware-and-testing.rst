@@ -30,12 +30,12 @@ ESP8266 and the host computer. [#]_ It is available on GitHub: https://github.co
 Download or clone the mpfshell repository and follow the instructions in the
 README.md file to install.
 
-We will use the AntEvents framework for writing some of the software running on
-the ESP8266. Please download or clone the AntEvent repository on GitHub:
-https://github.com/mpi-sws-rse/antevents-python. Note that we will not be using
-the version of AntEvents available on pypi.python.org. That version is only for
+We will use the ThingFlow framework for writing some of the software running on
+the ESP8266. Please download or clone the ThingFlow repository on GitHub:
+https://github.com/mpi-sws-rse/thingflow-python. Note that we will not be using
+the version of ThingFlow available on pypi.python.org. That version is only for
 the standard CPython implementation. We will be using the code in the
-``micropython`` subdirectory of the AntEvents source tree.
+``micropython`` subdirectory of the ThingFlow source tree.
 
 MicroPython Firmware
 ~~~~~~~~~~~~~~~~~~~~
@@ -141,7 +141,7 @@ Congratulations, you have MicroPython running on your ESP8266! If you had
 problems, you might try looking at the troubleshooting hints provided in
 the MicroPython documentation [#]_.
 
-Next, let's write an :ref:`application <antevents-application>` for our board.
+Next, let's write an :ref:`application <thingflow-application>` for our board.
   
 .. [#] https://pypi.python.org/pypi/esptool/1.2.1
 

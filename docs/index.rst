@@ -36,7 +36,7 @@ individual study.
    parts-and-tools
    hardware-assembly
    firmware-and-testing
-   antevents-application
+   thingflow-application
    mqtt
    projects
    teachers-notes

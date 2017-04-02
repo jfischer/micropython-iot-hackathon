@@ -1,36 +1,37 @@
-.. _antevents-application:
+.. _thingflow-application:
 
-5. AntEvents Application
+5. ThingFlow Application
 ========================
-Now that our board is up and running, we can use AntEvents to build a simple
+Now that our board is up and running, we can use ThingFlow to build a simple
 application.
 
-AntEvents
+ThingFlow
 ---------
-AntEvents is a Python 3 framework for building IoT event processing and
+ThingFlow is a Python 3 framework for building IoT event processing and
 filtering applications. It is centered around *event streams*, which are
 infinite sequences of timestamped sensor value samples. The key components
-in AntEvents are *sensors*, which capture data from the outside world,
-*filters*, which transform event streams, and the *scheduler* which manages
-the recurring sampling of sensors. AntEvents allows you to write your
+in ThingFlow are *sensors*, which capture data from the outside world,
+*things*, which transform event streams, and the *scheduler* which manages
+the recurring sampling of sensors. ThingFlow allows you to write your
 IoT code as data flows ("from this to that") instead of as procedural
 code ("if this then that").
 
-There are two implementations of AntEvents in Python. The goal is to
+There are two implementations of ThingFlow in Python. The goal is to
 provide a common API from very small sensor nodes (like the ESP8266) to
 large servers (for event concentration and data science). We will be using
 the MicroPython version, which may be found in the ``micropython`` subdirectory
-of the ``antevents-python`` repository.
+of the `thingflow-python <https://github.com/mpi-sws-rse/thingflow-python>`_
+repository.
 
 Due to the memory limitations of the ESP8266, the MicroPython version is
-very stripped down, and only supports a subset of the full AntEvents API.
+very stripped down, and only supports a subset of the full ThingFlow API.
 That will be fine for our application, as the focus of our code will be to
 sample the light sensor and send the values over the network to a larger
 system for processing and / or storage.
 
 Reading the Light Sensor
 ------------------------
-A *sensor* in AntEvents is a Python object which satisfies two
+A *sensor* in ThingFlow is a Python object which satisfies two
 criteria:
 
 1. It provides a ``sensor_id`` property which can be used in event
@@ -38,7 +39,7 @@ criteria:
 2. It provides a ``sample()`` method which returns the current value
    associated with the sensor.
 
-The AntEvents MicroPython implementation includes a sensor implementation
+The ThingFlow MicroPython implementation includes a sensor implementation
 for the TSL2591 lux sensor. We will first copy this over to the ESP8266
 and verify that we can read the sensor.
 
@@ -48,7 +49,7 @@ Close any previous ``screen`` sessions with your ESP8266 system, and
 restart it.
 
 In a terminal session, go to the ``micropython`` subdirectory of the
-AntEvents repository. From this directory, run the ``mpfshell``
+ThingFlow repository. From this directory, run the ``mpfshell``
 utility. In this session type the following (substituting ``tty.SLAB_USBtoUART``
 or ``ttyUSB0`` for TTYDEVICE)::
 
@@ -110,25 +111,25 @@ sensor is working for us!
 
 A Light Sampling Application
 ----------------------------
-Now, we will copy over the main module of AntEvents and use the scheduler
+Now, we will copy over the main module of ThingFlow and use the scheduler
 to periodically call our sample method and print the result. First, start
-``mpfshell`` in the ``micropython`` directory. Copy ``antevents.py`` over
+``mpfshell`` in the ``micropython`` directory. Copy ``thingflow.py`` over
 to the ESP8266 as follows::
 
   open TTYDEVICE
-  put antevents.py
+  put thingflow.py
   ls
 
-You should see that ``antevents.py`` is now on the ESP8266.
+You should see that ``thingflow.py`` is now on the ESP8266.
 
-Next, go back to the MicroPython REPL. We will import the AntEvents core and
+Next, go back to the MicroPython REPL. We will import the ThingFlow core and
 our sensor. Then we will instantiate the sensor object and a scheduler. Finally,
 we will call the scheduler with the sensor, asking it to sample the sensor
 once every two seconds and print the resulting event. Here is the REPL session:
 
 .. code-block:: python
 
-    >>> from antevents import *
+    >>> from thingflow import *
     >>> from tsl2591 import Tsl2591
     >>> tsl = Tsl2591('lux-1')
     >>> sched = Scheduler()
@@ -147,7 +148,7 @@ once every two seconds and print the resulting event. Here is the REPL session:
 
 The ``schedule_sensor()`` call takes three parameters: the sensor
 object to be schedule, the sample interval in seconds, and the downstream
-data flow. In this case we are just calling the ``Output`` subscriber to
+data flow. In this case we are just calling the ``Output`` "thing" to
 print the messages.
 
 The tuples being printed have three elements: the sensor id, a timestamp,

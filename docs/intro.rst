@@ -39,7 +39,7 @@ Software Overview
 We will first update the firmware to use the latest version of MicroPython.
 Then, we can copy over a library module to read the light sensor. We can
 call it interactively via the Python REPL to sample the sensor. Next, we can
-copy over the AntEvents framework and write a short program to periodically
+copy over the ThingFlow framework and write a short program to periodically
 sample the sensor.
 
 To use the system remotely, we will send messages over the WiFi radio.
@@ -68,7 +68,7 @@ topics are covered:
 * :ref:`hardware-assembly` - connect a light sensor up to the ESP8266.
 * :ref:`firmware-and-testing` - install firmware and interact with the board over
   a USB connection.
-* :ref:`antevents-application` - use the AntEvents framework to build a
+* :ref:`thingflow-application` - use the ThingFlow framework to build a
   simple light sensor sampling application.
 * :ref:`mqtt` - use the MQTT protocol to send our sensor events over the
   wireless network.

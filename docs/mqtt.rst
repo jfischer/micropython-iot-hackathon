@@ -26,8 +26,8 @@ which interact with clients using two different interaction patterns.
 message is received at the broker, it is passed on to any current subscribers
 to the topic. In this case, both *Client-D* and *Client-E* will receive each
 message. We will call this a *push* pattern, as it is one directional, and the
-interaction is initiated by the publisher. In an IoT context, the
-publisher is usually a sensor node and the subscriber(s) are servers
+interaction is initiated by the output_thing. In an IoT context, the
+output_thing is usually a sensor node and the subscriber(s) are servers
 that process and store the sensor data.
 
 *Client-C* and *Client-F* are interacting in a request-response or
@@ -120,9 +120,9 @@ ESP8266 Setup
 -------------
 MicroPython already has an MQTT client in its standard library, so we do not need
 to do much on the ESP8266-side. We will just copy over some convenience
-modules provided by AntEvents.
+modules provided by ThingFlow.
 
-On your host machine, go to the ``micropython`` subdirectory of your AntEvents
+On your host machine, go to the ``micropython`` subdirectory of your ThingFlow
 repository. Run ``mpfshell`` and copy the scripts for WiFi configuration and
 MQTT as follows (substituting your tty device name for ``TTYDEVICE``)::
 
@@ -138,7 +138,7 @@ or through ``screen``). We will first run our import statements:
 
 .. code-block:: python
 
-    >>> from antevents import *
+    >>> from thingflow import *
     >>> from tsl2591 import Tsl2591
     >>> from wifi import wifi_connect
     >>> from mqtt_writer import MQTTWriter
@@ -164,13 +164,13 @@ Here is the REPL session:
 
 .. code-block:: python
 
-    >>> sensor = SensorPub(Tsl2591('lux-1'))
-    >>> sensor.subscribe(Output())
+    >>> sensor = SensorAsOutputThing(Tsl2591('lux-1'))
+    >>> sensor.connect(Output())
     <closure>
-    >>> sensor.subscribe(m)
+    >>> sensor.connect(m)
     <closure>
 
-Finally, we instantiate an AntEvents scheduler and schedule our sensor to be
+Finally, we instantiate an ThingFlow scheduler and schedule our sensor to be
 sampled once every two seconds:
 
 .. code-block:: python
@@ -227,7 +227,7 @@ look something like this:
    SLEEP_TIME=5.0
 
 You will definitely need to change the values for ``WIFI_ESSID``,
-``WIFI_PASSWORD``, and ``MQTT_HOST``. The other can be left as-is.
+``WIFI_PASSWORD``, and ``MQTT_HOST``. The others can be left as-is.
 
 Now, use ``mpfshell`` to copy ``config.py`` and ``client.py`` to your
 ESP8266 (substituting for TTYDEVICE)::
@@ -265,7 +265,7 @@ REPL:
 >>> import os
 >>> os.rename('client.py', 'main.py')
 >>> os.listdir()
-['boot.py', 'tsl2591.py', 'antevents.py', 'wifi.py', 'mqtt_writer2.py', 'mqtt_writer.py', 'config.py', 'main.py']
+['boot.py', 'tsl2591.py', 'thingflow.py', 'wifi.py', 'mqtt_writer2.py', 'mqtt_writer.py', 'config.py', 'main.py']
 >>>
 
 Finally, press the reset button of your ESP8266 board. It will reboot.
@@ -286,7 +286,7 @@ You should see the sensor events printed once every five seconds.
 server.py
 ~~~~~~~~~
 We will next use the ``server.py`` script to read these events and write to a CSV
-file. It is an AntEvents script that subscribes to messages on a specified
+file. It is an ThingFlow script that subscribes to messages on a specified
 topic, parses the messages, overwrites the timestamps with the server timestamp [#]_,
 and writes the events to a CSV file. Here is a graphical view of the dataflow:
 
@@ -305,24 +305,24 @@ Here is what the core part of the script looks like:
 		
 
 Since it is running on a PC or server, this script uses the full
-CPython version of AntEvents. You will need to have an installation of
+CPython version of ThingFlow. You will need to have an installation of
 Python 3. You will also need the ``paho-mqtt`` package (installable via pip)
-and the ``antevents-python``
-package in your Python environment. Installing AntEvents can be done in one of
+and the ``thingflow-python``
+package in your Python environment. Installing ThingFlow can be done in one of
 three ways:
 
-1. Install AntEvents via pip: ``pip install antevents-python``
-2. Install from your local repository by going to the ``antevents-python``
+1. Install ThingFlow via pip: ``pip install thingflow-python``
+2. Install from your local repository by going to the ``thingflow-python``
    directory and running ``python setup.py install``.
 3. Just set your PYTHONPATH environment variable to the full absolute path
-   of the repository directory ``antevents-python``.
+   of the repository directory ``thingflow-python``.
 
 Once this is done, you should be able to run the following::
 
   $ python3
-  >> import antevents.base
+  >> import thingflow.base
 
-If this succeeds, you have AntEvents properly set up. We are
+If this succeeds, you have ThingFlow properly set up. We are
 now ready to run the ``server.py`` script. It takes two command
 line arguments: the topic to which it will subscribe and the name
 of the out CSV file. We'll run it as follows::
