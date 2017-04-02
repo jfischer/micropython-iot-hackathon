@@ -93,7 +93,7 @@ On Linux, it should be called ``/dev/ttyUSB0``. The device will only be
 present when your ESP8266 board is plugged in.
 
 Now, run ``screen`` as follows (substituting ``TTYDEVICE`` with ``ttyUSB0`` or
-``SLAB_USBtoUART``)::
+``tty.SLAB_USBtoUART``)::
 
   screen /dev/TTYDEVICE 115200
 
