@@ -100,13 +100,13 @@ Once installed, make sure that your Mosquitto broker is running and listening
 to port 1883 (the default). A simple test can be done with the ``mosquitto_pub``
 and ``mosquitto_sub`` clients. Open two terminal windows. In one, type::
 
-  mosquitto_sub -t test-topic
+  mosquitto_sub -t sensor-data
 
 It should hang and not print anything immediately. The process is subscribing to
-the topic ``test-topic`` and will print to standard output any messages that it
+the topic ``sensor-data`` and will print to standard output any messages that it
 receives. In the second window, run the following::
 
-  mosquitto_pub -t test-topic -m "hi, there"
+  mosquitto_pub -t sensor-data -m "hi, there"
 
 You should now see the message printed in the first (subscriber) window. This
 means that the broker is working. You can now kill the subscriber with a
@@ -154,7 +154,7 @@ is the code in the REPL (replace ``my_wifi_sid``, ``my_wifi_password``, and
     >>> MQTT_HOST='mqtt_broker_ip'
     >>> wifi_connect(SID, PASSWORD)
     network config: ( ... )
-    >>> m = MQTTWriter('esp8266', MQTT_HOST, 1883, 'test-topic')
+    >>> m = MQTTWriter('esp8266', MQTT_HOST, 1883, 'sensor-data')
     Connecting to xxx.xxx.xxx.xxx:1883
     Connection successful
 
@@ -187,12 +187,12 @@ sampled once every two seconds:
 
 To verify that these messages are being sent to our broker, we can use the
 utility ``mosquito_sub`` on the host machine. It takes one command line
-argument, the topic name (in our case ``test-topic``). We should see something
+argument, the topic name (in our case ``sensor-data``). We should see something
 like the following when we run it:
 
 .. code-block:: bash
 
-    $ mosquitto_sub -t test-topic
+    $ mosquitto_sub -t sensor-data
     ["lux-1", 624, 284.1312]
     ["lux-1", 626, 288.2113]
     ["lux-1", 627, 77.0304]
