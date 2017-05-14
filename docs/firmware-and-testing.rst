@@ -16,14 +16,19 @@ Software Prerequisites
 ----------------------
 Python
 ~~~~~~
-You will need an installation of Python 2 for some of the PC-side tools.
+On your host computer, you will need an installation of Python 3, version 3.4
+or later. As described below, you will be adding a few packages to your Python
+install. Rather than add these packages to your system-wide Python install, we
+recommend installing them into a *virtual environment*. See the Python
+`documentation page for venv <https://docs.python.org/3/library/venv.html>`_
+for details.
 
-Erasing and flashing the firmware is done through a Python 2 utility called
+Erasing and flashing the firmware is done through a utility called
 ``esptool.py`` [#]_. You can install it via ``pip`` with the command::
 
   pip install --upgrade esptool
 
-If ``pip`` on your system defaults to Python 3, then use ``pip2`` instead.
+If ``pip`` on your system defaults to Python 2, then use ``pip3`` instead.
 
 We will also use ``mpfshell``, a shell-like utility for moving files between the
 ESP8266 and the host computer. [#]_ It is available on GitHub: https://github.com/wendlers/mpfshell.
@@ -33,7 +38,7 @@ README.md file to install.
 We will use the ThingFlow framework for writing some of the software running on
 the ESP8266. Please download or clone the ThingFlow repository on GitHub:
 https://github.com/mpi-sws-rse/thingflow-python. Note that we will not be using
-the version of ThingFlow available on pypi.python.org. That version is only for
+the packaged version of ThingFlow available on pypi.python.org. That version is only for
 the standard CPython implementation. We will be using the code in the
 ``micropython`` subdirectory of the ThingFlow source tree.
 
@@ -118,7 +123,7 @@ Now, install the new firmware with the following (substituting in the device nam
 and MicroPython image file name)::
 
   esptool.py --port /dev/TTDEVICE --baud 460800 write_flash \
-  --flash_size=detect -fm dio 0 esp8266-YYYYMMDD-vX.Y.Z.bin
+  --flash_size=detect --verify -fm dio 0 esp8266-YYYYMMDD-vX.Y.Z.bin
 
 Next, we will use ``screen`` to connect to our board. From the command line::
 
@@ -143,7 +148,7 @@ the MicroPython documentation [#]_.
 
 Next, let's write an :ref:`application <thingflow-application>` for our board.
   
-.. [#] https://pypi.python.org/pypi/esptool/1.2.1
+.. [#] https://pypi.python.org/pypi/esptool/1.3
 
 .. [#] MicroPython has a web-based interface for transferring files
        over the WiFi network. However, we have seen some problems with using it
