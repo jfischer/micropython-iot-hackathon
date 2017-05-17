@@ -1,5 +1,5 @@
 # Main program to run on host that is running the MQTT broker
-# It reads from the specified port and writes to a CSV file.
+# It reads from the specified topic and writes to a CSV file.
 import argparse
 import asyncio
 import time
