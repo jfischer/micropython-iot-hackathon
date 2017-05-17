@@ -125,6 +125,9 @@ and MicroPython image file name)::
   esptool.py --port /dev/TTDEVICE --baud 460800 write_flash \
   --flash_size=detect --verify -fm dio 0 esp8266-YYYYMMDD-vX.Y.Z.bin
 
+If this step fails, you might try lowering the baud rate (e.g. from 460800
+to 115200).
+
 Next, we will use ``screen`` to connect to our board. From the command line::
 
   screen /dev/TTYDEVICE 115200
