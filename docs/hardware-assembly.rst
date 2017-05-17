@@ -100,32 +100,28 @@ Adafruit Feather HUZZAH ESP8266
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 Here are the connections to make if you have the Adafruit ESP8266 board:
 
-+------------+-------------+----------------------+--------------------------+
-| Connection | Signal Name | Location of Source   | Location of Destination  |
-| Number     |             |                      |                          |
-+============+=============+======================+==========================+
-|   A1       | GND         | ESP8266 board        | Bottom row of breadboard |
-|            |             | pin #4 from right    |                          |
-|	     |             | on top row           |                          |
-+------------+-------------+----------------------+--------------------------+
-|   A2       | GND         | Bottom row of        | TSL2591 board            |
-|            |             | breadboard           | pin #2 from left         |
-+------------+-------------+----------------------+--------------------------+
-|   A3       | 3V          | ESP8266 board        | Top row of breadboard    |
-|            |             | pin #2 from right on |                          |
-|            |             | top row              |                          |
-+------------+-------------+----------------------+--------------------------+
-|   A4       | Vin         | Top row of           | TSL2591 board            |
-|            |             | breadboard           | pin #1 from left         |
-+------------+-------------+----------------------+--------------------------+
-|   A5       | SDA         | ESP8266 board        | TSL2591 board            |
-|            | (GPIO #4)   | pin  #1 from left    | pin #5 from left         |
-|            |             | on bottom row        |                          |
-+------------+-------------+----------------------+--------------------------+
-|   A6       | SCL         | ESP8266 board        | TSL2591 board            |
-|            | (GPIO #5)   | pin  #2 from left    | pin #6 from left         |
-|            |             | on bottom row        |                          |
-+------------+-------------+----------------------+--------------------------+
++------------+-------------+---------------------------+--------------------------+
+| Connection | Signal Name | Location of Source        | Location of Destination  |
+| Number     |             |                           |                          |
++============+=============+===========================+==========================+
+|   A1       | GND         | | ESP8266 board pin #4    | | Bottom row of          |
+|            |             | | from right on top row   | | breadboard             |
++------------+-------------+---------------------------+--------------------------+
+|   A2       | GND         | | Bottom row of           | | TSL2591 board          |
+|            |             | | breadboard              | | pin #2 from left       |
++------------+-------------+---------------------------+--------------------------+
+|   A3       | 3V          | | ESP8266 board pin #2    | | Top row of             |
+|            |             | | from right on top row   | | of breadboard          |
++------------+-------------+---------------------------+--------------------------+
+|   A4       | Vin         | | Top row of              | | TSL2591 board          |
+|            |             | | breadboard              | | pin #1 from left       |
++------------+-------------+---------------------------+--------------------------+
+|   A5       | SDA         | | ESP8266 board pin #1    | | TSL2591 board          |
+|            | (GPIO #4)   | | from left on bottom row | | pin #5 from left       |
++------------+-------------+---------------------------+--------------------------+
+|   A6       | SCL         | | ESP8266 board pin #2    | | TSL2591 board          |
+|            | (GPIO #5)   | | from left on bottom row | | pin #6 from left       |
++------------+-------------+---------------------------+--------------------------+
 
 Here is a logical wiring diagram:
 
@@ -142,32 +138,28 @@ NodeMCU
 ~~~~~~~
 Here are the connections to make if you have the NodeMCU ESP8266 board:
 
-+------------+-------------+----------------------+--------------------------+
-| Connection | Signal Name | Location of Source   | Location of Destination  |
-| Number     |             |                      |                          |
-+============+=============+======================+==========================+
-|   N1       | GND         | ESP8266 board        | Bottom row of breadboard |
-|            |             | pin #7 from left     |                          |
-|	     |             | on top row           |                          |
-+------------+-------------+----------------------+--------------------------+
-|   N2       | GND         | Bottom row of        | TSL2591 board            |
-|            |             | breadboard           | pin #2 from left         |
-+------------+-------------+----------------------+--------------------------+
-|   N3       | 3V3         | ESP8266 board        | Top row of breadboard    |
-|            |             | pin #6 from left on  |                          |
-|            |             | top row              |                          |
-+------------+-------------+----------------------+--------------------------+
-|   N4       | Vin         | Top row of           | TSL2591 board            |
-|            |             | breadboard           | pin #1 from left         |
-+------------+-------------+----------------------+--------------------------+
-|   N5       | SDA         | ESP8266 board        | TSL2591 board            |
-|            | (D2)        | pin #3 from left     | pin #5 from left         |
-|            |             | on top row           |                          |
-+------------+-------------+----------------------+--------------------------+
-|   N6       | SCL         | ESP8266 board        | TSL2591 board            |
-|            | (D1)        | pin #2 from left     | pin #6 from left         |
-|            |             | on top row           |                          |
-+------------+-------------+----------------------+--------------------------+
++------------+-------------+---------------------------+--------------------------+
+| Connection | Signal Name | Location of Source        | Location of Destination  |
+| Number     |             |                           |                          |
++============+=============+===========================+==========================+
+|   N1       | GND         | | ESP8266 board pin #7    | | Bottom row of          |
+|            |             | | from left on top row    | | breadboard             |
++------------+-------------+---------------------------+--------------------------+
+|   N2       | GND         | | Bottom row of           | | TSL2591 board          |
+|            |             | | breadboard              | | pin #2 from left       |
++------------+-------------+---------------------------+--------------------------+
+|   N3       | 3V3         | | ESP8266 board pin #6    | | Top row of             |
+|            |             | | from left on top row    | | breadboard             |
++------------+-------------+---------------------------+--------------------------+
+|   N4       | Vin         | | Top row of              | | TSL2591 board          |
+|            |             | | breadboard              | | pin #1 from left       |
++------------+-------------+---------------------------+--------------------------+
+|   N5       | SDA         | | ESP8266 board pin #3    | | TSL2591 board          |
+|            | (D2)        | | from left on top row    | | pin #5 from left       |
++------------+-------------+---------------------------+--------------------------+
+|   N6       | SCL         | | ESP8266 board pin #2    | | TSL2591 board          |
+|            | (D1)        | | from left on top row    | | pin #6 from left       |
++------------+-------------+---------------------------+--------------------------+
 
 Here is a logical wiring diagram:
 
