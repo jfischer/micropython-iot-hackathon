@@ -132,7 +132,7 @@ Next, we will use ``screen`` to connect to our board. From the command line::
 
   screen /dev/TTYDEVICE 115200
 
-Now, press the reset button on your ESP8266 board. In your ``screen`` session,
+Now, press the reset button on your ESP8266 board [#]_. In your ``screen`` session,
 you should see some garbage characters followed by a version string and a
 prompt. For example:
 
@@ -164,5 +164,10 @@ Next, let's write an :ref:`application <thingflow-application>` for our board.
 .. [#] You can also find instructions for this in the MicroPython documentation.
        The relevant section is at
        https://docs.micropython.org/en/latest/esp8266/esp8266/tutorial/intro.html
+
+.. [#] On both the NodeMCU and Adafruit boards, the reset button is labeled
+       "RST". You can use this button to force a reboot of the system. This is
+       useful to get it to a known state (recommended after plugging into the USB
+       connection).
 
 .. [#] https://docs.micropython.org/en/latest/esp8266/esp8266/tutorial/intro.html#troubleshooting-installation-problems
