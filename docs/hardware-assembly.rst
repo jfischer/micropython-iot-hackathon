@@ -90,6 +90,11 @@ follow the instructions below for your board. Note that you should do all this
 wiring with your board unpowered (no battery and no connection to your laptop
 via USB).
 
+The wiring tables below make power connections through the horizontal power
+buses on the breadboards. This makes it easy to add more circuitry to the board
+later. If you do not plan to do so, you can wire the power pins of the ESP8266
+and sensor boards directly to each other, saving a few connections. Of course,
+be sure to wire 3V to 3V and GND to GND.
 
 Adafruit Feather HUZZAH ESP8266
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
