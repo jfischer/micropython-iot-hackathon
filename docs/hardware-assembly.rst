@@ -52,7 +52,7 @@ that exist between the holes:
 
 .. image:: _static/breadboard.png
 
-If you were to peal the backing off the breadboard, you would see metal
+If you were to peel the backing off the breadboard, you would see metal
 connections matching the lines shown in the right side of the picture.
 These connect individual holes in a way that can be used to facilitate
 connections between pins on the boards by inserting jumper wires. There
