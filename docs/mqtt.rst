@@ -307,11 +307,11 @@ Here is what the core part of the script looks like:
 Since it is running on a PC or server, this script uses the full
 CPython version of ThingFlow. You will need to have an installation of
 Python 3. You will also need the ``paho-mqtt`` package (installable via pip)
-and the ``thingflow-python``
+and the ``thingflow``
 package in your Python environment. Installing ThingFlow can be done in one of
 three ways:
 
-1. Install ThingFlow via pip: ``pip install thingflow-python``
+1. Install ThingFlow via pip: ``pip install thingflow``
 2. Install from your local repository by going to the ``thingflow-python``
    directory and running ``python setup.py install``.
 3. Just set your PYTHONPATH environment variable to the full absolute path
