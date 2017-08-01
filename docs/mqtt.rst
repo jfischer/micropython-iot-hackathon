@@ -230,7 +230,8 @@ You will definitely need to change the values for ``WIFI_ESSID``,
 ``WIFI_PASSWORD``, and ``MQTT_HOST``. The others can be left as-is.
 
 Now, use ``mpfshell`` to copy ``config.py`` and ``client.py`` to your
-ESP8266 (substituting for TTYDEVICE)::
+ESP8266 (substituting for TTYDEVICE or use Control-] to exit the repl
+if ``mpfshell`` is already running)::
 
   open TTYDEVICE
   put config.py

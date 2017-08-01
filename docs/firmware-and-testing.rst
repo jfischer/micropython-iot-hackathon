@@ -108,8 +108,8 @@ try a baud rate of 9600. Do not be worried at this point if you only see garbage
 we are going to rewrite the firmware anyway. As long as you saw the tty device,
 you should be OK.
 
-Now, unplug your USB cable and run the ``reset`` command in your terminal
-session. You are ready to install the firmware.
+Now, exit ``screen`` (pressing Control-A k and then "y"), and run the ``reset``
+command in your terminal session. You are ready to install the firmware.
 
 Installing the Firmware and Testing the REPL
 --------------------------------------------
