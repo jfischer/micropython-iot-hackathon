@@ -109,6 +109,32 @@ from the lux sensor). The value returned in the light reading in units of
 sensor -- it should return a lower value. Now, we have verified that the light
 sensor is working for us!
 
+Debugging problems
+~~~~~~~~~~~~~~~~~~
+If you get an error when instantiating or reading from the light sensor,
+you might have a bad connection or a problem with your sensor. Here's what
+an error might look like in your REPL session:
+
+.. code-block:: python
+
+    >>> from tsl2591 import Tsl2591
+    >>> tsl = Tsl2591('lux-1')
+    Traceback (most recent call last):
+      File "<stdin>", line 1, in <module>
+      File "tsl2591.py", line 83, in __init__
+      File "tsl2591.py", line 91, in set_timing
+      File "tsl2591.py", line 150, in enable
+      File "tsl2591.py", line 61, in write_byte_data
+    OSError: [Errno 19] ENODEV
+
+If you get an error like this, double-check your wiring.
+If you believe all your connections are correct,
+you might check whether one of the physical connections is bad. Set your
+multitester to resistance mode. For each connection, place one
+lead on the pin of the ESP2866 board and the other on the associated pin of
+the TSL2591 board. The resistance should measure zero if there is indeed
+a connection.
+
 A Light Sampling Application
 ----------------------------
 Now, we will copy over the main module of ThingFlow and use the scheduler
