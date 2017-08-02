@@ -110,7 +110,7 @@ Here are the connections to make if you have the Adafruit ESP8266 board:
 |   A2       | GND         | | Bottom row of           | | TSL2591 board          |
 |            |             | | breadboard              | | pin #2 from left       |
 +------------+-------------+---------------------------+--------------------------+
-|   A3       | 3V          | | ESP8266 board pin #2    | | Top row of             |
+|   A3       | 3V          | | ESP8266 board pin #2    | | Top row                |
 |            |             | | from right on top row   | | of breadboard          |
 +------------+-------------+---------------------------+--------------------------+
 |   A4       | Vin         | | Top row of              | | TSL2591 board          |

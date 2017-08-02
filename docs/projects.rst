@@ -65,12 +65,65 @@ to the LED, from the LED to a resistor, and from the resistor to GND.
 
 Temperature Sensor
 ~~~~~~~~~~~~~~~~~~
-There are many temperature sensors on the market. One well documented sensor
+There are many temperature sensors on the market. One well-documented sensor
 is the `MCP9808 breakout board <https://www.adafruit.com/products/1782>`__ from
-Adafruit. Like our light sensor, it uses the IC2 bus for communication. Adafruit
-even has a tutorial about using this sensor with MicroPython
+Adafruit. Like our light sensor, it uses the IC2 bus for communication. To
+use the sensor, you need four connections: ground, power, SDA, and SCL. Power
+and ground can be connected to the power and ground lines of your breadboard
+or directly to the associated pins on the ESP8266. For the SDA and SCL pins,
+you can either connect them directly to the ESP8266 or daisy-chain them
+(connect in series) through
+the Lux sensor. Assuming you already have the TSL2591 sensor wired to your
+ESP8266, here are the connections you will need:
+
++-------------+---------------------------+--------------------------+
+| Signal Name | Location of Source        | Location of Destination  |
+|             |                           |                          |
++=============+===========================+==========================+
+| GND         | | Bottom row of           | | MCP9808 board          |
+|             | | breadboard              | | pin #2 from left       |
++-------------+---------------------------+--------------------------+
+| 3V          | | Top row                 | | MCP9808 board          |
+|             | | of breadboard           | | ping #1 from left      |
++-------------+---------------------------+--------------------------+
+| SDA         | | TSL2591 board           | | MCP9808 board          |
+|             | | pin #5 from left        | | pin #4 from left       |
++-------------+---------------------------+--------------------------+
+| SCL         | | TSL2591 board           | | MCP9808 board          |
+|             | | pin #6 from left        | | pin #3 from left       |
++-------------+---------------------------+--------------------------+
+
+ThingFlow for MicroPython has a sensor class for the MCP9808 located
+in ``micropython/sensors/mcp9808.py``. Here is an example MicroPython
+REPL session where we sample both the lux and temperature sensors using
+ThingFlow:
+
+.. code-block:: python
+
+    >>> from thingflow import *
+    >>> from tsl2591 import Tsl2591
+    >>> from mcp9808 import Mcp9808
+    >>> lux = Tsl2591()
+    >>> temperature = Mcp9808()
+    Read manufacturer ID: 0054
+    Read device ID: 0400
+    >>> sched = Scheduler()
+    >>> sched.schedule_sensor(lux, 10, Output())
+    <closure>
+    >>> sched.schedule_sensor(temperature, 10, Output())
+    <closure>
+    >>> sched.run_forever()
+    ('tsl2591', 108, 162.221)
+    ('mcp9808', 108, 26.1875)
+    ('tsl2591', 117, 162.221)
+    ('mcp9808', 117, 26.1875)
+    ('tsl2591', 126, 1.5096)
+    ('mcp9808', 126, 26.1875)
+
+Finally, Adafruit has a tutorial about using this sensor with MicroPython
 `here <https://learn.adafruit.com/micropython-hardware-i2c-devices>`__.
 
+    
 Door Open/Close Detector
 ~~~~~~~~~~~~~~~~~~~~~~~~
 Adafruit describes a project to interface the ESP8266 to a door open/closed
