@@ -173,14 +173,14 @@ board:
 	   
 .. _testing-connections:
 
-Testing Connections
---------------------
-Now that the system has been wired up, we can test the connections. Take your
-multitester and set it to measure resistance. For each connection, place one
-lead on the pin of the ESP2866 board and the other on the associated pin of
-the TSL2591 board. The resistance should measure zero. You can also check for
-shorts by looking at the resistance between GND and 3V. It should be a high
-value.
+Verifying Connections
+---------------------
+Now that the system has been wired up, we can verify the connections.
+You might start by visually inspecting the connections to make sure
+they match the wiring diagram. Pay special attention to the 3V and ground
+connections to avoid short circuits. If you are unsure, set your multitester
+to resistance mode and check the resistance between GND and 3V. It should
+be a high value.
 
 Now, you can use the microUSB to USB cable and connect your system to your
 laptop. You should see an LED light up (at least briefly) on the board. You
