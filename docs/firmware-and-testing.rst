@@ -32,8 +32,10 @@ If ``pip`` on your system defaults to Python 2, then use ``pip3`` instead.
 
 We will also use ``mpfshell``, a shell-like utility for moving files between the
 ESP8266 and the host computer. [#]_ It is available on GitHub: https://github.com/wendlers/mpfshell.
-Download or clone the mpfshell repository and follow the instructions in the
-README.md file to install.
+Install it with::
+
+    pip install git+https://github.com/wendlers/mpfshell
+
 
 We will use the ThingFlow framework for writing some of the software running on
 the ESP8266. Please download or clone the ThingFlow repository on GitHub:
