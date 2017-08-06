@@ -44,6 +44,8 @@ the packaged version of ThingFlow available on pypi.python.org. That version is 
 the standard CPython implementation. We will be using the code in the
 ``micropython`` subdirectory of the ThingFlow source tree.
 
+.. _os_specifics:
+
 MicroPython Firmware
 ~~~~~~~~~~~~~~~~~~~~
 You can download the latest version of the MicroPython firmware for ESP8266 from

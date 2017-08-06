@@ -33,7 +33,7 @@ communication.
 Once the basic system is up and running, additional sensors can be added.
 
 .. image:: _static/nodemcu_photo_nolabels.jpg
-	   
+
 Software Overview
 -----------------
 We will first update the firmware to use the latest version of MicroPython.
@@ -77,6 +77,7 @@ topics are covered:
   creative and try out your own ideas.
 * :ref:`teachers-notes` - some notes for instructors who are using the material
   as a template for a class.
+* :ref:`quick_installation` - for fast software and firmware setup.
 
 OK, now let's get started with the :ref:`parts and tools <parts-and-tools>` that you need.
 
@@ -84,4 +85,4 @@ OK, now let's get started with the :ref:`parts and tools <parts-and-tools>` that
 
 .. [#] https://en.wikipedia.org/wiki/ESP8266
 
-.. [#] http://cache.nxp.com/documents/user_manual/UM10204.pdf       
+.. [#] http://cache.nxp.com/documents/user_manual/UM10204.pdf

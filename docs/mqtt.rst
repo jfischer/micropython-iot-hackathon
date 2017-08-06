@@ -211,6 +211,8 @@ look in the ``example_code`` folder
 (https://github.com/jfischer/micropython-iot-hackathon/tree/master/example_code). The program ``client.py`` will run on the ESP8266 and the program
 ``server.py`` will run on our host.
 
+.. _wifi-config:
+
 client.py
 ~~~~~~~~~
 First, open an editor and create a file ``config.py`` that contains
