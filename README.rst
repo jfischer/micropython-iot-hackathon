@@ -46,6 +46,7 @@ Here's an overview of the key files and directories:
 * ``docs/_build`` - Sphinx creates and puts its output in this subdirectory. A
   ``make clean`` in ``docs/`` will delete this directory and its contents.
 * ``docs/conf.py`` - configuration file for Sphinx
+* ``make_zip.sh`` - to build a zipfile with class content software and docs
 * ``example_code/`` - subdirectory with Python example code
 * ``lecture.pptx`` - overview presentation to give at the start of the class.
 * ``lecture.pdf`` - pdf version of the overview presentation
@@ -57,7 +58,7 @@ Copyright 2016, 2017 by Jeffrey Fischer.
 
 The documentation and text in this repository is made available under a
 Creative Commons
-`Attribution-ShareAlike 4.0 (CC BY-SA 4.0) license <https://creativecommons.org/licenses/by-sa/4.0/>`__. 
+`Attribution-ShareAlike 4.0 (CC BY-SA 4.0) license <https://creativecommons.org/licenses/by-sa/4.0/>`__.
 This allows you to remix, transform, and distribute the content, provided you
 cite the original authors and provide your content under the same license as
 the orginal. See the file LICENSE-DOCS.txt for details.
