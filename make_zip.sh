@@ -1,15 +1,34 @@
 #!/bin/bash
 # Create zipfile for the MicroPython IoT Hackathon
+# This is current as of 8/2017.
 
-set -e  # Stop if there is any error
 CURRENT_PATH=$(pwd)
 
 TMP_PATH=$(mktemp -d)
 trap "rm -rf $TMP_PATH" EXIT  # Ensure temporary path gets removed on exit
 cd $TMP_PATH
 
+#Find pip
+PIP36=`which pip3.6`
+PIP3=`which pip3`
+if [[ "$PIP36" != "" ]]; then
+  PIP=$PIP36
+elif [[ "$PIP3" != "" ]]; then
+  PIP=$PIP3
+else
+  echo "Could not find either pip3 or pip3.6"
+  exit 1
+fi
+echo "Using $PIP as pip program"
+if [[ `which wget` == "" ]]; then
+  echo "Could not find wget"
+  exit 1
+fi
+
+set -e  # Stop if there is any error
+
 # Get tool wheels
-pip3.6 wheel -w micropython-iot-software/python-tools esptool adafruit-ampy \
+$PIP wheel -w micropython-iot-software/python-tools esptool adafruit-ampy \
     wheel paho_mqtt thingflow git+https://github.com/wendlers/mpfshell
 
 # Get firmware
@@ -41,3 +60,4 @@ zip -r micropython-iot-software.zip micropython-iot-software
 # Cleanup
 cd $CURRENT_PATH
 mv $TMP_PATH/micropython-iot-software.zip .
+echo "Successfully created micropython-iot-software.zip"
