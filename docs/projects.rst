@@ -56,13 +56,6 @@ lights on and off in a realistic manner.
 
 More Sensors
 ------------
-
-Turning on an LED
-~~~~~~~~~~~~~~~~~
-Perhaps the simplest hardware interfacing is to an LED. There are many tutorials
-online about how to do this. You will need three connections: from a GPIO pin
-to the LED, from the LED to a resistor, and from the resistor to GND.
-
 Temperature Sensor
 ~~~~~~~~~~~~~~~~~~
 There are many temperature sensors on the market. One well-documented sensor
@@ -129,6 +122,77 @@ Door Open/Close Detector
 Adafruit describes a project to interface the ESP8266 to a door open/closed
 switch here: https://learn.adafruit.com/using-ifttt-with-adafruit-io/overview.
 It is Arduino based, but should be easily adaptable to MicroPython.
+
+Accelerometer
+~~~~~~~~~~~~~
+An accelerometer opens up a number of interesting project ideas. For example, a
+student at the Max Planck Institute for Software Systems built a machine
+learning-based gait analysis application. She used an ESP8266,
+the `ADXL345 breakout board <https://www.adafruit.com/product/1231>`__ from
+Adafruit,
+MicroPython, and ThingFlow. A ThingFlow sensor for the ADXL345 is located
+in the ThingFlow repository at ``thingflow-python/micropython/sensors/adxl345_upy.py``.
+The machine learning was done in Python with
+`scikit-learn <http://scikit-learn.org>`__.
+
+Actuators
+---------
+Turning on an external LED
+~~~~~~~~~~~~~~~~~~~~~~~~~~
+Perhaps the simplest hardware interfacing is to an LED. There are many tutorials
+online about how to do this. You will need three connections: from a GPIO pin
+to the LED, from the LED to a resistor, and from the resistor to GND.
+
+NeoPixel Strips
+~~~~~~~~~~~~~~~
+NeoPixels are addressable LED light sets available from Adafruit and others.
+MicroPython provides a
+`NeoPixel "driver" library <https://docs.micropython.org/en/latest/esp8266/esp8266/quickref.html#neopixel-driver>`__.
+ThingFlow for MicroPython provides a convenient interface on top of this -- see
+``thingflow-python/micropython/neopixel_writer.py``.
+
+Open-ended Projects
+-------------------
+Power Management
+~~~~~~~~~~~~~~~~
+The ESP8266 has various `power saving modes <http://bbs.espressif.com/viewtopic.php?t=133>`__.
+If you have a simple sensor application that samples once a minute or less,
+you should be able to turn off the WiFi radio and put the board into a
+deep sleep mode. Some people claim that you can
+`Run your ESP8266 for Years on a Battery <https://openhomeautomation.net/esp8266-battery/>`__,
+but there probably are complications in the real world. For example:
+How much power does your sensor consume? Can you turn it off programmatically?
+Can you avoid DHCP initialization when the radio is turned back on?
+
+You can use a voltage divider to reduce the battery voltage below the 1.0V
+limit of the ESP8266 Analog to Digital converter. That would enable you to measure
+the voltage over time. Here are some instructions at Adafruit:
+https://learn.adafruit.com/using-ifttt-with-adafruit-io/wiring#battery-tracking.
+
+On the software side, the ThingFlow scheduler optimizes samples to maximize the
+sleep time. The sleep can be easily changed to one of the deep sleep modes.
+
+Using the ESP8266 as a WiFi Modem
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+The ESP8266 was originally developed to used in conjunction with larger
+microcontrollers. The intent was for the ESP8266 to provide WiFi capabilities,
+while the primary microcontroller provided the main processing. In fact,
+the original ESP8266 firmware included a Hayes-style ("ATDT") modem command
+set over the serial port.
+
+There are still hobbyist use cases for the ESP8266 as a WiFi modem. For example,
+you might have a larger Arduino system that does not already support wireless
+operation. Can you connect the ESP8266 to these kind of systems via its second
+serial port? Can you emulate some modem functionality in MicroPython?
+
+Home Assistant Integration
+~~~~~~~~~~~~~~~~~~~~~~~~~~
+`Home Assistant <https://home-assistant.io/>`__ is a Python3 open-source
+application framework for automating your home. Since Home Assistant
+already supports MQTT, it should be easy to integrate remote ESP8266
+nodes into the application. Can you do it? What cool applications can
+you build?
+
 
 Another Micropython/ESP8266 Tutorial
 ------------------------------------
