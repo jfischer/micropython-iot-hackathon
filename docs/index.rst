@@ -1,4 +1,4 @@
-.. Micropython IoT Hackathon documentation master file, created by
+>.. Micropython IoT Hackathon documentation master file, created by
    sphinx-quickstart on Mon Dec 26 20:48:32 2016.
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
@@ -44,7 +44,7 @@ individual study.
 
 Copyright and License
 ---------------------
-Copyright 2016, 2017 by Jeffrey Fischer.
+Copyright 2016, 2017 by Jeffrey Fischer and contributers.
 
 This document is made available under a Creative Commons
 `Attribution-ShareAlike 4.0 (CC BY-SA 4.0) license <https://creativecommons.org/licenses/by-sa/4.0/>`__.
@@ -56,6 +56,19 @@ Example code and any other software in the
 `associated repository <https://github.com/jfischer/micropython-iot-hackathon>`__
 is made available under the MIT License. This allows you to reuse the examples,
 with very few restrictions.
+
+Acknowledgements
+----------------
+The following people have contributed to this repository (listed in
+chronological order):
+
+* Jeff Fischer
+* Simeon Franklin
+* Eric Theise
+* Daniel Mizyrycki
+
+We thank all the contributers for their help! Thank you also to
+those who have participated in or facilitated past IoT Hackathons.
 
 
 Indices and tables

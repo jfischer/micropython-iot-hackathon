@@ -54,7 +54,7 @@ Here's an overview of the key files and directories:
 
 Copyright and License
 =====================
-Copyright 2016, 2017 by Jeffrey Fischer.
+Copyright 2016, 2017 by Jeffrey Fischer and contributers.
 
 The documentation and text in this repository is made available under a
 Creative Commons
@@ -67,13 +67,26 @@ Example code and any other software in this repository is made available under
 the MIT License. This allows you to reuse the examples, with very few
 restrictions. See the file LICENSE-CODE.txt for details.
 
+Acknowledgements
+----------------
+The following people have contributed to this repository (listed in
+chronological order):
+
+* Jeff Fischer
+* Simeon Franklin
+* Eric Theise
+* Daniel Mizyrycki
+
+We thank all the contributers for their help! Thank you also to
+those who have participated in or facilitated past IoT Hackathons.
+
 Release History
 ===============
 
 +------------+---------+--------------------------------------------------+
 | Date       | Version | Description                                      |
 +============+=========+==================================================+
-| 2017-08-?? |  1.2.0  | Preparation for 2017 PyBay workshop              |
+| 2017-08-08 |  1.3.0  | 2017 PyBay IoT Workshop                          |
 +------------+---------+--------------------------------------------------+
 | 2017-01-18 |  1.1.0  | Cleanup and additional details.                  |
 +------------+---------+--------------------------------------------------+
