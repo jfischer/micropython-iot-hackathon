@@ -44,6 +44,22 @@ git clone https://github.com/mpi-sws-rse/thingflow-python
 rm -rf micropython-iot-hackathon/.git
 rm -rf thingflow-python/.git
 
+# build the docs
+echo "building docs"
+pip install sphinx_rtd_theme # theme for docs
+mkdir docs
+cd micropython-iot-hackathon/docs
+make html
+mv _build/html ../../docs/micropython-iot-hackathon
+rm -rf _build
+cd ../..
+cd thingflow-python/docs
+make html
+mv _build/html ../../docs/thingflow-python
+rm -rf _build
+cd ../..
+
+
 # Download terminal programs
 mkdir terminal; cd terminal
 wget https://the.earth.li/~sgtatham/putty/latest/w32/putty-0.70-installer.msi

@@ -44,7 +44,6 @@ the packaged version of ThingFlow available on pypi.python.org. That version is 
 the standard CPython implementation. We will be using the code in the
 ``micropython`` subdirectory of the ThingFlow source tree.
 
-.. _os_specifics:
 
 MicroPython Firmware
 ~~~~~~~~~~~~~~~~~~~~
@@ -53,6 +52,8 @@ here: http://micropython.org/download#esp8266. You will want the latest stable
 firmware version [#]_. Since the name of the firmware file will change over time,
 we will refer to it as ``esp8266-YYYYMMDD-vX.Y.Z.bin`` in any commands. Just substitute
 with name of your image file.
+
+.. _os_specifics:
 
 Mac-specific
 ~~~~~~~~~~~~
