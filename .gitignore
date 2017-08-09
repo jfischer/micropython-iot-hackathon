@@ -2,3 +2,4 @@ _build
 .DS_Store
 *~
 micropython-iot-software.zip
+docs/__pycache__
