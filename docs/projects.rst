@@ -153,6 +153,23 @@ ThingFlow for MicroPython provides a convenient interface on top of this -- see
 
 Open-ended Projects
 -------------------
+Adafruit Circuit Playground Express
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+The
+`Circuit Playground Express <https://www.adafruit.com/product/3333>`__
+(CPX) is a board from Adafruit
+that includes a Cortex M0 processor, temperature, motion, sound, and light sensors,
+NeoPixel lights, a speaker, and more. It runs CircuitPython, which is Adafruit's
+port of MicroPython to their system.
+
+There are a lot of applications possible with this kind of board. In the
+directory ``example_code/cpx``, Daniel Mizyrycki has graciously provided
+code from a cool demo. He uses a potentiometer connected to an ESP8266
+to wirelessly control the NeoPixel lights on the Circuit Playground Express.
+Here is a picture of the demo in action:
+
+.. image:: _static/cpx-demo.jpg
+	   
 Power Management
 ~~~~~~~~~~~~~~~~
 The ESP8266 has various `power saving modes <http://bbs.espressif.com/viewtopic.php?t=133>`__.
@@ -192,20 +209,6 @@ application framework for automating your home. Since Home Assistant
 already supports MQTT, it should be easy to integrate remote ESP8266
 nodes into the application. Can you do it? What cool applications can
 you build?
-
-Adafruit Circuit Playground Express
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-The
-`Circuit Playground Express <https://www.adafruit.com/product/3333>`__
-(CPX) is a board from Adafruit
-that includes a Cortex M0 processor, temperature, motion, sound, and light sensors,
-NeoPixel lights, a speaker, and more. It runs CircuitPython, which is Adafruit's
-port of MicroPython to their system.
-
-There are a lot of applications possible with this kind of board. In the
-directory ``example_code/cpx``, Daniel Mizyrycki has graciously provided
-code from a cool demo. He uses a potentiometer connected to an ESP8266
-to wirelessly control the NeoPixel lights on the Circuit Playground Express.
 
 
 Another Micropython/ESP8266 Tutorial
